@@ -1,7 +1,11 @@
 variable "aws_security_group_id" {default = "sg-08cd4d06198a49a94"}
+variable "access_key" {}
+variable "secret_key" {}
 
 provider "aws" {
   region = "us-east-1"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
 }
 resource "aws_instance" "example" {
   ami = "ami-2d39803a"
